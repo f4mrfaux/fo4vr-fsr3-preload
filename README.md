@@ -83,6 +83,19 @@ Loaded ffx_fsr3_x64.dll at 0x...
 
 A `FAILED ... (error 126)` line in `FSR3Preload.log` means that DLL is missing from `Data\UpscalerBasePlugin\`.
 
+To confirm FSR is actually upscaling, press **Keypad \*** in game (the upscaler's `mToggleUpscaler` hotkey) to turn it
+off, then press it again to turn it back on. `Fallout4Upscaler.log` records each switch:
+
+```
+[info] MIP LOD Bias changed from  -1.5849624 to 0, recreating samplers
+[info] Creating combined VRS pattern texture of size  330x166 for input texture size 5288x2644 and render size 5288x2644
+[info] MIP LOD Bias changed from  0 to -1.5849624, recreating samplers
+[info] Creating combined VRS pattern texture of size  330x166 for input texture size 5288x2644 and render size 3542x1771
+```
+
+With FSR on, the render size is smaller than the input size (here 3542x1771 for a 5288x2644 output at Quality); with it
+off they match. Your sizes depend on your headset resolution and quality setting.
+
 ## Tested
 
 One machine so far:
@@ -94,6 +107,7 @@ One machine so far:
 | Game | Fallout 4 VR 1.2.72, F4SEVR 0.6.21 |
 | Mod list | Fallout VR Essentials Overhaul 20.1 (HD profile) |
 | Result | FSR 3 at Quality (3542x1771 rendered, 5288x2644 output across both eyes); no crash |
+| A/B | Without FSR3Preload the game crashes at start-up as described above; with it, toggling the upscaler in game switches the render size between 3542x1771 and 5288x2644 |
 
 Not yet tested: other GPUs (Intel, older AMD), other headsets, other mod lists. Reports welcome.
 
