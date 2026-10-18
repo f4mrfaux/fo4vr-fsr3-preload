@@ -108,6 +108,11 @@ One machine so far:
 | Mod list | Fallout VR Essentials Overhaul 20.1 (HD profile) |
 | Result | FSR 3 at Quality (3542x1771 rendered, 5288x2644 output across both eyes); no crash |
 | A/B | Without FSR3Preload the game crashes at start-up as described above; with it, toggling the upscaler in game switches the render size between 3542x1771 and 5288x2644 |
+| GPU load | Standing still in Sanctuary: about 45% with FSR Quality on, 49% with the upscaler toggled off, 46% back on. That scene is CPU-bound, so FSR freed GPU time rather than adding frames |
+| Ultra Quality | `mQualityLevel = 4`: 4071x2035 rendered for 5288x2644 output; about 50 minutes of play, including Arcjet Systems |
+
+FSR lowers GPU load. If your game is limited by the CPU, as Fallout 4 VR often is, expect headroom for higher SteamVR
+resolution or a higher quality level rather than more frames.
 
 Not yet tested: other GPUs (Intel, older AMD), other headsets, other mod lists. Reports welcome.
 
